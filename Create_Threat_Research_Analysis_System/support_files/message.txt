@@ -1,0 +1,18 @@
+   
+               _,.
+              ,` -.)
+             ( _/-\\-._
+            /,|`--._,-^|      
+            \_| |`-._/||      
+              |  `-, / |      
+              |     || |      
+               `r-._||/   __  
+ ____________,-<_     )`-/  `._______________________________________________________________
+ |*|                                                                                      |*|
+ |*| This potion of the setup script is completed;                                        |*|
+ |*| Since you'll need to create a Splunk account to download the installer               |*|
+ |*| , this portion of the setup will be done manually.                                   |*|
+ |*| See the Splunk setup instruction to contine the setup process.                       |*|
+ |*| Instructions are located here:                                                       |*|
+ |*|______________________________________________________________________________________|*|
+ 
