@@ -2,6 +2,8 @@
 
 #Remnux Install
 echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
+mkdir /home/$USER/tools/
+cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
 
 # 23c7f4eefa7599ea2c4156f083906ea5fd99df18f306e4bb43eec0430073985a
@@ -31,7 +33,6 @@ sudo apt install boxes
 # Install instructions can be found here https://github.com/weslambert/velociraptor-docker
 echo "Installing Velociraptor"
 sudo apt install docker-compose -y
-mkdir /home/$USER/tools/
 cd /home/$USER/tools/
 git clone https://github.com/weslambert/velociraptor-docker
 cd /home/$USER/tools/velociraptor-docker
