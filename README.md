@@ -12,12 +12,14 @@ This script will install the necessary files used to build the base analysis sys
 Install Steps:
 
 1. On the base host run command "chmod +x Linux_install_setup.sh", then execute the script by running "./Linux_install_setup.sh" (Without the quotes).
-2. Once the script completes, start the Windows VM. Be sure to create a snapshot in case you need to start over.
-3. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. The to folder "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\". 
-4. Next run, file "create_user.bat"
-5. After the VM restarts, change the network setting to NAT, then login using Username=P316 and Password=Passw0rd!
-6. Start an Admin PowerShell console, then navigate again to "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\" and run file "windows-setup.bat"
-7. After a couple of hours the install should be finished. This is where "Workshop 1 - Create Analysis System" will pick up from to review the tools installed and the following:
+2. During the VirtualBox install you'll be prompted to accept the VirtualBox License.
+3. During the Splunk install, you'll be prompted to enter a username and password. You'll also be prompted to change the Splunk port since its being used by Velocripator, respond with "y" and enter "8888" for the port number.
+4. Once the script completes, start the Windows VM. Be sure to create a snapshot in case you need to start over.
+5. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. The to folder "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\". 
+6. Next run, file "create_user.bat"
+7. After the VM restarts, change the network setting to NAT, then login using Username=P316 and Password=Passw0rd!
+8. Start an Admin PowerShell console, then navigate again to "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\" and run file "windows-setup.bat"
+9. After a couple of hours the install should be finished. This is where "Workshop 1 - Create Analysis System" will pick up from to review the tools installed and the following:
 
 High level review of the tools and use cases
 
