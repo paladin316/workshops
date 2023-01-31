@@ -11,12 +11,6 @@ echo "Downloading and installing Remnux; Grab some coffee, this might take a whi
 cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
 
-# Download Windows Tools
-mkdir /home/$USER/tools/windows_tools
-cd /home/$USER/tools/windows_tools
-http://dl.google.com/chrome/install/375.126/chrome_installer.exe
-https://download.sysinternals.com/files/SysinternalsSuite.zip
-
 # 23c7f4eefa7599ea2c4156f083906ea5fd99df18f306e4bb43eec0430073985a
 sha256sum remnux-cli
 cp remnux-cli remnux
@@ -24,6 +18,12 @@ chmod +x remnux
 sudo mv remnux /usr/local/bin
 sudo apt install -y gnupg
 sudo remnux install -y
+
+# Download Windows Tools
+mkdir /home/$USER/tools/windows_tools
+cd /home/$USER/tools/windows_tools
+http://dl.google.com/chrome/install/375.126/chrome_installer.exe
+https://download.sysinternals.com/files/SysinternalsSuite.zip
 
 # InetSim Install (already installed as part of Remnux)
 # sudo apt install inetsim
