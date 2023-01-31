@@ -13,12 +13,12 @@ Install Steps:
 
 1. On the base host run command "chmod +x Linux_install_setup.sh", then execute the script by running "./Linux_install_setup.sh" (Without the quotes).
 2. During the VirtualBox install you'll be prompted to accept the VirtualBox License.
-3. During the Splunk install, you'll be prompted to enter a username and password. You'll also be prompted to change the Splunk port since its being used by Velocripator, respond with "y" and enter "8888" for the port number. Note: This is the Splunk Community version which only allows 500MB per day. I would suggest only running the Splunk server during testing to avoid reaching the daily limit. Otherwise you'll lose your data. To start Splunk run command start-splunk else stop-splunk to shutdown the Splunk server. 
+3. During the Splunk install, you'll be prompted to enter a username and password. You'll also be prompted to change the Splunk port since its being used by Velocripator, respond with "y" and enter "8888" for the port number. **Note:* This is the Splunk Community version which only allows 500MB per day. I would suggest only running the Splunk server during testing to avoid reaching the daily limit. Otherwise you'll lose your data. To start Splunk run command start-splunk else stop-splunk to shutdown the Splunk server. 
 4. Once the script completes, start the Windows VM. Be sure to create a snapshot in case you need to start over.
 5. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. Then to folder "T:\workshops\Create_Threat_Research_Analysis_System\support_files\". 
 6. Next run, file "create_user.bat"
 7. After the VM restarts, change the network setting to NAT, then login using Username=P316 and Password=Passw0rd!
-8. Start an Admin PowerShell console, then navigate again to "T:\workshops\Create_Threat_Research_Analysis_System\support_files\" and run file "windows-setup.bat" (Note: if you wait to long between changing the network to NAT and running the script, disabling Defender will fail since its already synced with the Cloud. Recommendation would be to get the script ready to execute, then change the network settings to NAT.)
+8. Start an Admin PowerShell console, then navigate again to "T:\workshops\Create_Threat_Research_Analysis_System\support_files\" and run file "windows-setup.bat" (**Note:* if you wait to long between changing the network to NAT and running the script, disabling Defender will fail since its already synced with the Cloud. Recommendation would be to get the script ready to execute, then change the network settings to NAT.)
 9. After a couple of hours the install should be finished. This is where "Workshop 1 - Create Analysis System" will pick up from to review the tools installed and the following:
 
 High level review of the tools and use cases
