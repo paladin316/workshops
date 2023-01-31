@@ -1,10 +1,21 @@
+#!/bin/sh
+
+# Get Repo
+mkdir /home/$USER/tools/
+cd /home/$USER/tools/
+git clone https://github.com/paladin316/workshops.git
 
 
 #Remnux Install
 echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
-mkdir /home/$USER/tools/
 cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
+
+# Download Windows Tools
+mkdir /home/$USER/tools/windows_tools
+cd /home/$USER/tools/windows_tools
+http://dl.google.com/chrome/install/375.126/chrome_installer.exe
+https://download.sysinternals.com/files/SysinternalsSuite.zip
 
 # 23c7f4eefa7599ea2c4156f083906ea5fd99df18f306e4bb43eec0430073985a
 sha256sum remnux-cli
@@ -12,21 +23,21 @@ cp remnux-cli remnux
 chmod +x remnux
 sudo mv remnux /usr/local/bin
 sudo apt install -y gnupg
-sudo remnux install
+sudo remnux install -y
 
 # InetSim Install (already installed as part of Remnux)
 # sudo apt install inetsim
 
 # Install foremost - forensics carving utility
 echo "Installing foremost"
-sudo apt install foremost
+sudo apt install foremost -y
 
 # Install Mingw to compile windows binaries on Linux
 echo "Installing Mingw to compile windows binaries on Linux"
 sudo apt-get install mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 gcc-mingw-w64
 
 # Install Boxes for console Messages
-sudo apt install boxes
+sudo apt install boxes -y
 
 
 # Install Velociraptor
@@ -37,9 +48,17 @@ cd /home/$USER/tools/
 git clone https://github.com/weslambert/velociraptor-docker
 cd /home/$USER/tools/velociraptor-docker
 sudo docker-compose up -d 
+echo"To access the Velociraptor Console browse to URL https://192.168.56.1:8889; username=admin password=admin"
 sudo sed -i 's/-\ https:\/\/VelociraptorServer:8000\//-\ https:\/\/192.168.56.1:8000\//g' /home/$USER/tools/velociraptor-docker/velociraptor/client.config.yaml
 # If you want to stop Velociraptor run command 'sudo docker-compose stop'
 # Access the Velociraptor GUI via https://<hostip>:8889
+
+# Create link to start/stop Velociraptor
+chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-velociraptor
+chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/stop-velociraptor
+sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-velociraptor /usr/bin/
+sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/stop-velociraptor /usr/bin/
+
 
 # Default u/p is admin/admin
 # This can be changed by running:
@@ -52,7 +71,7 @@ sudo sed -i 's/-\ https:\/\/VelociraptorServer:8000\//-\ https:\/\/192.168.56.1:
 
 # Install VirtualBox
 echo "installing VirtualBox"
-sudo apt install virtualbox virtualbox-ext-pack -y --force-yes
+sudo apt install virtualbox virtualbox-ext-pack -y --allow
 
 # Download MS VM
 # Get Flare-VM 
@@ -66,29 +85,33 @@ git clone https://github.com/redcanaryco/atomic-red-team.git
 git clone https://github.com/redcanaryco/invoke-atomicredteam.git
 
 # Get Sysmon
+cd /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/
+wget -O Sysmon.zip https://download.sysinternals.com/files/Sysmon.zip
+unzip Sysmon.zip
 cd /home/$USER/tools/
 git clone https://github.com/olafhartong/sysmon-modular.git
-
 # Get Win10 Dev VM for IE
 cd /home/$USER/tools/
 echo "Downloading Win10 Dev VM for IE; Grab some coffee, this might take a while"
-wget https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip
-unzip MSEdge.Win10.VirtualBox.zip
+wget -O WinDev2301Eval.VirtualBox.zip https://aka.ms/windev_VM_virtualbox
+sleep 10
+unzip WinDev2301Eval.VirtualBox.zip
+
 
 # Get Office 2019
-cd /home/$USER/tools/
-echo "Downloading Office Pro Plus 2019, this might take a while"
-wget http://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/nl-nl/ProPlus2019Retail.img
-7z x 'MSEdge - Win10.ova' -o/home/$USER/tools/Office2019
+#cd /home/$USER/tools/
+#echo "Downloading Office Pro Plus 2019, this might take a while"
+#wget http://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/nl-nl/ProPlus2019Retail.img
+#7z x 'ProPlus2019Retail.img' -o/home/$USER/tools/Office2019
 
 # Extract VMDK Disk from OVA file to prep for FlareVM
 echo "Extracting VMDK Disk from OVA file to prep for FlareVM"
 mkdir /home/$USER/tools/OVA-temp
 mkdir /home/$USER/tools/P316-ThreatResearch
-7z x 'MSEdge - Win10.ova' -o/home/$USER/tools/OVA-temp
+7z x 'WinDev2301Eval.ova' -o/home/$USER/tools/OVA-temp
 cd /home/$USER/tools/OVA-temp
-rm /home/$USER/tools/OVA-temp/'MSEdge - Win10.ovf'
-mv /home/$USER/tools/OVA-temp/'MSEdge - Win10-disk001.vmdk' /home/$USER/tools/OVA-temp/P316-ThreatResearch.vmdk
+rm /home/$USER/tools/OVA-temp/'WinDev2301Eval.ovf'
+mv /home/$USER/tools/OVA-temp/'WinDev2301Eval-disk001.vmdk' /home/$USER/tools/OVA-temp/P316-ThreatResearch.vmdk
 
 # Convert VMDK image to VDI image; This is required to expand the dynamic disk size to install FlareVM
 echo "Convert VMDK image to VDI image; This is required to expand the dynamic disk size to install FlareVM"
@@ -98,6 +121,7 @@ cd /home/$USER/tools/P316-ThreatResearch
 # Create Virtual Machine via command line 
 echo "Creating Virtual Machine"
 vboxmanage createvm --name P316-ThreatResearch --ostype Windows_64 --register --basefolder /home/$USER/tools/ &&
+VBoxManage modifyvm P316-ThreatResearch --firmware efi &&
 vboxmanage modifyvm P316-ThreatResearch --memory 4096 --cpus 2 --vram 128 --graphicscontroller VBoxSVGA &&
 VBoxManage storagectl P316-ThreatResearch --name "SATA Controller" --add sata --bootable on &&
 VBoxManage storageattach P316-ThreatResearch --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium /home/$USER/tools/P316-ThreatResearch/P316-ThreatResearch.vdi &&
@@ -117,31 +141,48 @@ VBoxManage dhcpserver add --ifname vboxnet0 --ip 192.168.56.1 --netmask 255.255.
 VBoxManage dhcpserver modify --ifname vboxnet0 --enable
 
 # Create Share Folders for Win10 VM
-VBoxManage sharedfolder add P316-ThreatResearch -name tools -hostpath "/home/user/tools" --readonly  --automount --auto-mount-point="t:"
+VBoxManage sharedfolder add P316-ThreatResearch -name tools -hostpath "/home/$USER/tools" --readonly  --automount --auto-mount-point="t:"
 mkdir /home/$USER/tshare
-VBoxManage sharedfolder add P316-ThreatResearch -name tshare -hostpath "/home/user/tshare" --automount --auto-mount-point="s:"
+VBoxManage sharedfolder add P316-ThreatResearch -name tshare -hostpath "/home/$USER/tshare" --automount --auto-mount-point="s:"
 
 # Increase Disk Size of the VM to install Flare-VM Tools
 VBoxManage modifyhd /home/$USER/tools/P316-ThreatResearch/P316-ThreatResearch.vdi --resize 1000000
 
+# Create vm hostonly/nat link to change interfaces
+chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/vm-set-hostonly
+chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/vm-set-nat
+sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/vm-set-hostonly /usr/bin/
+sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/vm-set-nat /usr/bin/
+
+# Cleanup of larger files no longer needed
+rm /home/$USER/tools/WinDev2301Eval.ova
+rm /home/$USER/tools/WinDev2301Eval.VirtualBox.zip
 # Set up Velociraptor agent
 
 
 #Install Splunk 
-zenity --error --text="Install Script Finished - See console for next steps\!" --title="Script Setup Completed!"
+wget -O splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.0.3/linux/splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb"
+wget -O splunkforwarder.msi "https://download.splunk.com/products/universalforwarder/releases/9.0.3/windows/splunkforwarder-9.0.3-dd0128b1f8cd-x64-release.msi"
 cat ~/tools/message.txt
+zenity --error --text="Install Script Finished - See console for next steps\!" --title="Script Setup Completed!"
 
-To install Splunk go to https://www.splunk.com/en_us/download/splunk-enterprise.html;
-Create an account if you do not have one. Next peform the following steps:
-1. Donwload Splunk binary for Linux from here https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us#
-2. | boxes -d peek
-https://www.splunk.com/en_us/download/splunk-enterprise.html
-https://docs.splunk.com/Documentation/Splunk/9.0.2/Admin/MoreaboutSplunkFree
 echo "Have you logged into Splunk and downloaded Splunk installer and Splunkforwarder binary? If yes then continue"
 read -n 1 -r -s -p $'Press enter to continue...\n'
 #MV Splunk Forwarder binary to tools dir
-mv /home/$USER/Downloads/splunkforwarder*.msi /home/$USER/tools/splunkforwarder.msi
-
-# To Dos:
-# 1. Capture Diskmanager extend process
-# 2. Rename user prior to flare vm install - (Get-WmiObject Win32_UserAccount -Filter "name='IEUser'").Rename("User1")
+# Install Splunk
+echo "Installing Splunk"
+sudo dpkg -i /home/$USER/tools/splunk*.deb
+echo "Starting Splunk"
+chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-splunk 
+sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-splunk /usr/bin/
+chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/stop-splunk 
+sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/stop-splunk /usr/bin/
+sudo /opt/splunk/bin/splunk start --accept-license
+#Create username (admin) and password (Passw0rd!) when prompted during the Splunk install
+# Velociraptor is currently using http port [8000]; You'll need to supply another port number. I'd suggest suggest using port 8888
+# After Splunk starts up login using the credential created during the install at URL http://system1:8888
+echo "Stopping Splunk"
+sudo /opt/splunk/bin/splunk stop
+echo "Splunk Install Completed; To start Splunk run command start-splunk else stop-splunk to shutdown the Splunk server"
+echo "You can access Splunk using this URL http://127.0.0.1:8888; Use the username and password you created during the install"
+echo "Next steps, laucnh the Windows 11 VM and continue with the Windows portion of the setup"
