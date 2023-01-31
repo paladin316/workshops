@@ -5,9 +5,9 @@ The goal of this first workshop is to help others learn how to build a Threat Re
 
 The steps for building the Threat Research System are as follows:
 
-The base host I used for this project is a Kubuntu 20.04
+The base host I used for this project is a Kubuntu 20.04 (Some may prefer Ubuntu 20.04, that will work too)
 
-This script will install the necessary files used to build the based OS and the files used to build the Windows 11 VM (Unfortuately Windows 10 Dev VM is no longer available). The total install time is about 4 - 6 hours depending on your Internet bandwith. Most of the install is automated excpet for some of the Windows setup steps, but even most of that is automated as well.
+This script will install the necessary files used to build the base analysis system and the files used to build the Windows 11 VM (Unfortuately Windows 10 Dev VM is no longer available). The total install time is about 4 - 6 hours depending on your Internet bandwith. Most of the install is automated excpet for some of the Windows setup steps, but even most of that is automated as well.
 
 
 Install Steps:
