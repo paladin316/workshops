@@ -8,4 +8,4 @@ net localgroup administrators P316 /add
 net user User /active:no
 
 :: Restart Computer
-cmd /C powershell.exe Restart-Computer
+cmd /C powershell.exe Restart-Computer -force
