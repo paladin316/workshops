@@ -13,10 +13,10 @@ This script will install the necessary files used to build the base analysis sys
 Install Steps:
 
 1. On the base host run script "Linux_install_setup.sh"
-2. Once the script completes run start the Windows VM. Be sure to create a snapshot in case you need to start over.
+2. Once the script completes, start the Windows VM. Be sure to create a snapshot in case you need to start over.
 3. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. The to folder "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\". 
 4. Next run, file create_user.bat
-5. After the VM restart login using Username=P316 and Password=Passw0rd!
+5. After the VM restarts, change the network setting to NAT, then login using Username=P316 and Password=Passw0rd!
 6. Start an Admin PowerShell console, then navigate again to "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\" and run file "windows-setup.bat"
 7. After a couple of hours the install should be finished. This is where "Workshop 1 - Create Analysis System" will pick up from to review the tools installed and the following:
 
