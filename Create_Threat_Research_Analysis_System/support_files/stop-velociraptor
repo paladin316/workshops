@@ -1,0 +1,2 @@
+#!/bin/sh
+cd /home/$USER/tools/velociraptor-docker && sudo docker-compose down
