@@ -18,7 +18,7 @@ Install Steps:
 5. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. Then to folder "T:\workshops\Create_Threat_Research_Analysis_System\support_files\". 
 6. Next run, file "create_user.bat"
 7. After the VM restarts, login using Username=P316 and Password=Passw0rd!
-8. Start an Admin PowerShell console, then navigate again to "T:\workshops\Create_Threat_Research_Analysis_System\support_files\" and run file "windows-setup.bat" (**Note: After running script "windows-setup.bat" you'll be prompted to continue, at this point its recommended to change the netowrk settings to NAT to allow for the FlareVM tools install. During the Flare Tools install you will receive a message stating "Windows version 22621 has not been tested. Tested versions: 17763, 19042", hit enter to continue the install work.**)
+8. Start an Admin PowerShell console, then navigate again to "T:\workshops\Create_Threat_Research_Analysis_System\support_files\" and run file "windows-setup.bat" (**Note: After running script "windows-setup.bat" you'll be prompted to continue, at this point its recommended to change the netowrk settings to NAT to allow for the FlareVM tools install. During the Flare Tools install you will receive a message stating "Windows version 22621 has not been tested. Tested versions: 17763, 19042", enter "Y" to continue the install, it will work.**)
 9. After a couple of hours the install should be finished. This is where "Workshop 1 - Create Analysis System" will pick up from to review the tools installed and the following:
 
 High level review of the tools and use cases
