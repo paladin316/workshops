@@ -22,8 +22,8 @@ sudo remnux install -y
 # Download Windows Tools
 mkdir /home/$USER/tools/windows_tools
 cd /home/$USER/tools/windows_tools
-http://dl.google.com/chrome/install/375.126/chrome_installer.exe
-https://download.sysinternals.com/files/SysinternalsSuite.zip
+wget http://dl.google.com/chrome/install/375.126/chrome_installer.exe
+wget https://download.sysinternals.com/files/SysinternalsSuite.zip
 
 # InetSim Install (already installed as part of Remnux)
 # sudo apt install inetsim
