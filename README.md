@@ -13,7 +13,7 @@ Install Steps:
 
 1. On the base host run command "chmod +x Linux_install_setup.sh", then execute the script by running "./Linux_install_setup.sh" (Without the quotes).
 2. During the VirtualBox install you'll be prompted to accept the VirtualBox License.
-3. During the Splunk install, you'll be prompted to enter a username and password. You'll also be prompted to change the Splunk port since its being used by Velocripator, respond with "y" and enter "8888" for the port number.
+3. During the Splunk install, you'll be prompted to enter a username and password. You'll also be prompted to change the Splunk port since its being used by Velocripator, respond with "y" and enter "8888" for the port number. Note: This is the Splunk Community version which only allows 500MB per day. I would suggest only running the Splunk server during testing to avoid reaching the daily limit. Otherwise you'll lose your data. To start Splunk run command start-splunk else stop-splunk to shutdown the Splunk server. 
 4. Once the script completes, start the Windows VM. Be sure to create a snapshot in case you need to start over.
 5. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. The to folder "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\". 
 6. Next run, file "create_user.bat"
