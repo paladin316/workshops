@@ -1,10 +1,9 @@
 #!/bin/sh
 
-# Get Repo
+# Get Paladin316 Project Repo
 mkdir /home/$USER/tools/
 cd /home/$USER/tools/
 git clone https://github.com/paladin316/workshops.git
-
 
 #Remnux Install
 echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
