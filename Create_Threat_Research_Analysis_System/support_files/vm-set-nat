@@ -1,2 +1,0 @@
-#!/bin/sh
-VBoxManage modifyvm P316-ThreatResearch --nic1 nat
