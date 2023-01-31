@@ -71,7 +71,7 @@ sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/su
 
 # Install VirtualBox
 echo "installing VirtualBox"
-sudo apt install virtualbox virtualbox-ext-pack -y --allow
+sudo apt install virtualbox virtualbox-ext-pack -y
 
 # Download MS VM
 # Get Flare-VM 
