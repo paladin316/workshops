@@ -1,7 +1,6 @@
 # workshops
-This repo is where I'm storing my workshop content
 
-The goal of this first workshop is to help others learn how to build a Threat Research Analysis system on the cheap. Then use this System as the foundation for building on the other Workshops part of this series.  See the Wiki for other workshops that will be part of this series https://github.com/paladin316/workshops/wiki
+The goal of this first workshop is to help others learn how to build a Threat Research Analysis system on the cheap. Then use this System as the foundation for building on the other Workshops that are part of this series.  See the Wiki for other workshops that will be part of this series https://github.com/paladin316/workshops/wiki
 
 The steps for building the Threat Research System are as follows:
 
