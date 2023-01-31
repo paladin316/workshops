@@ -1,0 +1,16 @@
+   
+               _,.
+              ,` -.)
+             ( _/-\\-._
+            /,|`--._,-^|      
+            \_| |`-._/||      
+              |  `-, / |      
+              |     || |      
+               `r-._||/   __  
+ ____________,-<_     )`-/  `._______________________________________________________________
+ |*|                                                                                      |*|
+ |*| This potion of the setup script is completed;                                        |*|
+ |*| Since you'll need to create a Splunk account to download  updates and                |*|
+ |*| another packages. You can login using this URL https://login.splunk.com/             |*|
+ |*|______________________________________________________________________________________|*|
+ 
