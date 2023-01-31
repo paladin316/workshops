@@ -8,7 +8,7 @@ echo "AtomicRedTeam Install Completed"
 # Install Sysmon with 
 echo "Installing Sysmon"
 cmd /C mkdir c:\stuff
-cp "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\Sysmon64.exe" c:\stuff\
+cp "T:\workshops\Create_Threat_Research_Analysis_System\support_files\Sysmon64.exe" c:\stuff\
 cmd /C "c:\stuff\Sysmon64.exe" -i -accepteula
 cmd /C "c:\stuff\Sysmon64.exe" -c "T:\sysmon-modular\sysmonconfig.xml"
 echo "Sysmon Install Completed"
@@ -25,7 +25,7 @@ echo " Installing Splunkforwarder"
 msiexec.exe /i t:\splunkforwarder.msi AGREETOLICENSE=Yes SPLUNKUSERNAME=admin SPLUNKPASSWORD=Passw0rd! RECEIVING_INDEXER="192.168.56.1:9997" /quiet | Out-Null
 echo "Splunkforwarder Install Completed"
 echo "Copying inputs.conf to Splunk Folder"
-cp T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\inputs.conf "C:\Program Files\SplunkUniversalForwarder\etc\apps\SplunkUniversalForwarder\local\inputs.conf"
+cp T:\workshops\Create_Threat_Research_Analysis_System\support_files\inputs.conf "C:\Program Files\SplunkUniversalForwarder\etc\apps\SplunkUniversalForwarder\local\inputs.conf"
 echo "Restarting Splunkforwarder Service"
 cmd /C sc stop SplunkForwarder
 cmd /C sc start SplunkForwarder
