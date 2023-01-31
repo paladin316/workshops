@@ -34,7 +34,7 @@ sudo apt install foremost -y
 
 # Install Mingw to compile windows binaries on Linux
 echo "Installing Mingw to compile windows binaries on Linux"
-sudo apt-get install mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 gcc-mingw-w64
+sudo apt-get install mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 gcc-mingw-w64 -y
 
 # Install Boxes for console Messages
 sudo apt install boxes -y
