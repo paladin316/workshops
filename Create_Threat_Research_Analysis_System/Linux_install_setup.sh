@@ -161,6 +161,7 @@ rm /home/$USER/tools/WinDev2301Eval.VirtualBox.zip
 
 
 #Install Splunk 
+cd /home/$USER/tools/
 wget -O splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.0.3/linux/splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb"
 wget -O splunkforwarder.msi "https://download.splunk.com/products/universalforwarder/releases/9.0.3/windows/splunkforwarder-9.0.3-dd0128b1f8cd-x64-release.msi"
 cat ~/tools/message.txt
