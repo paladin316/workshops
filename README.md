@@ -12,4 +12,29 @@ Install Steps:
 
 1. On the base host run script "Linux_install_setup.sh"
 2. Once the script completes run start the Windows VM. Be sure to create a snapshot in case you need to start over.
-3. After auto logging into the Windows 11 VM, open an Admin PowerShell prompt, navigate to the "t:" drive.
+3. After auto logging into the Windows 11 VM, open an Admin PowerShell console, navigate to the "t:" drive. The to folder "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\". 
+4. Next run, file create_user.bat
+5. After the VM restart login using Username=P316 and Password=Passw0rd!
+6. Start an Admin PowerShell console, then navigate again to "T:\workshopsCreate_Threat_Research_Analysis_Systemsupport_files\" and run file "windows-setup.bat"
+7. After a couple of hours the install should be finished. This is where "Workshop 1 - Create Analysis System" will pick up from to review the tools installed and the following:
+
+High level review of the tools and use cases
+
+* Sysmon / Splunk Logging
+* Malware Analysis, , CaptureBat Python
+* Remnux
+* FlareVM
+* Atomic Red Team
+* RTO
+* Velocirptor
+* Threat Hunting
+* Detection Engineering
+
+Discuss Dos and Don'ts , talk about OpSec
+* Use a VPN to hide your true IP - why? Methods?
+* Do not connect or interact directly with attacker infrastructure - why ?
+* Don't tip off the Threat Actor - why?
+* Use Open Source Intelligence (OSINT) tools to research (Yes Google can be used as OSINT)
+
+
+See the Wiki for other workshops that will be part of this series https://github.com/paladin316/workshops/wiki
