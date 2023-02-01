@@ -4,7 +4,7 @@
 if [ "$(id -u)" -eq 0 ]; then tput bold;tput setaf 5;echo "Please do not run as root." >&2; exit 1; fi
 
 Home=$PWD
-reqSpace=2000000000
+reqSpace=200000000
 SPACE=`df "$Home" | awk 'END{print $4}'`
 if [ $SPACE -le $reqSpace ];then
     tput bold;tput setaf 5;echo "Not Enough Disk Space to Continue";tput sgr0
