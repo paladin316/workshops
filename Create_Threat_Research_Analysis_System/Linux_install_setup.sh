@@ -3,6 +3,7 @@
 # Check to make sure script is not being exectuted as root
 if [ "$(id -u)" -eq 0 ]; then tput bold;tput setaf 5;echo "Please do not run as root." >&2; exit 1; fi
 
+#Checking to make sure there is enough disk space
 Home=$PWD
 reqSpace=200000000
 SPACE=`df "$Home" | awk 'END{print $4}'`
