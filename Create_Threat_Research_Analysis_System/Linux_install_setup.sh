@@ -20,7 +20,7 @@ git clone https://github.com/paladin316/workshops.git 2>/dev/null &&
 #Remnux Install
 tput bold;tput setaf 5; echo "Downloading and installing Remnux; Grab some coffee, this might take a while";tput sgr0
 cd /home/$USER/tools/
-#wget https://REMnux.org/remnux-cli
+wget https://REMnux.org/remnux-cli
 
 # 23c7f4eefa7599ea2c4156f083906ea5fd99df18f306e4bb43eec0430073985a
 sha256sum remnux-cli
