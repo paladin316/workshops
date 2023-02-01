@@ -1,16 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
 # Check to make sure script is not being exectuted as root
 if [ "$(id -u)" -eq 0 ]; then tput bold;tput setaf 5;echo "Please do not run as root." >&2; exit 1; fi
 
+set -e
+Home=$PWD
+reqSpace=200000000
+SPACE=`df "$Home" | awk 'END{print $4}'`
+if [[ $SPACE -le reqSpace ]]
+then
+    tput bold;tput setaf 5;echo "Not Enough Disk Space to Continue"
+    exit 1
+fi
+
 # Get Repo
-mkdir /home/$USER/tools/
+mkdir -p  /home/$USER/tools/workshops 
 cd /home/$USER/tools/
-git clone https://github.com/paladin316/workshops.git
+git clone https://github.com/paladin316/workshops.git 2>/dev/null &&
 
 
 #Remnux Install
-tput bold;tput setaf 5; echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
+echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
 cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
 
@@ -23,7 +33,7 @@ sudo apt install -y gnupg
 sudo remnux install -y
 
 # Download Windows Tools
-mkdir /home/$USER/tools/windows_tools
+mkdir -p  /home/$USER/tools/windows_tools
 cd /home/$USER/tools/windows_tools
 wget http://dl.google.com/chrome/install/375.126/chrome_installer.exe
 wget https://download.sysinternals.com/files/SysinternalsSuite.zip
@@ -90,7 +100,7 @@ git clone https://github.com/redcanaryco/invoke-atomicredteam.git
 # Get Sysmon
 cd /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/
 wget -O Sysmon.zip https://download.sysinternals.com/files/Sysmon.zip
-unzip Sysmon.zip
+unzip -f Sysmon.zip
 cd /home/$USER/tools/
 git clone https://github.com/olafhartong/sysmon-modular.git
 # Get Win10 Dev VM for IE
@@ -109,8 +119,8 @@ unzip WinDev2301Eval.VirtualBox.zip
 
 # Extract VMDK Disk from OVA file to prep for FlareVM
 tput bold;tput setaf 5; echo "Extracting VMDK Disk from OVA file to prep for FlareVM"
-mkdir /home/$USER/tools/OVA-temp
-mkdir /home/$USER/tools/P316-ThreatResearch
+mkdir -p  /home/$USER/tools/OVA-temp
+mkdir -p  /home/$USER/tools/P316-ThreatResearch
 7z x 'WinDev2301Eval.ova' -o/home/$USER/tools/OVA-temp
 cd /home/$USER/tools/OVA-temp
 rm /home/$USER/tools/OVA-temp/'WinDev2301Eval.ovf'
@@ -145,7 +155,7 @@ VBoxManage dhcpserver modify --ifname vboxnet0 --enable
 
 # Create Share Folders for Win10 VM
 VBoxManage sharedfolder add P316-ThreatResearch -name tools -hostpath "/home/$USER/tools" --readonly  --automount --auto-mount-point="t:"
-mkdir /home/$USER/tshare
+mkdir -p  /home/$USER/tshare
 VBoxManage sharedfolder add P316-ThreatResearch -name tshare -hostpath "/home/$USER/tshare" --automount --auto-mount-point="s:"
 
 # Increase Disk Size of the VM to install Flare-VM Tools
