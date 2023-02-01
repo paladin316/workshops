@@ -9,7 +9,7 @@ reqSpace=200000000
 SPACE=`df "$Home" | awk 'END{print $4}'`
 if [[ $SPACE -le reqSpace ]]
 then
-    tput bold;tput setaf 5;echo "Not Enough Disk Space to Continue"
+    tput bold;tput setaf 5;echo "Not Enough Disk Space to Continue";tput sgr0
     exit 1
 fi
 
@@ -20,7 +20,7 @@ git clone https://github.com/paladin316/workshops.git 2>/dev/null &&
 
 
 #Remnux Install
-tput bold;tput setaf 5; echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
+tput bold;tput setaf 5; echo "Downloading and installing Remnux; Grab some coffee, this might take a while";tput sgr0
 cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
 
@@ -42,11 +42,11 @@ wget https://download.sysinternals.com/files/SysinternalsSuite.zip
 # sudo apt install inetsim
 
 # Install foremost - forensics carving utility
-tput bold;tput setaf 5; echo "Installing foremost"
+tput bold;tput setaf 5; echo "Installing foremost";tput sgr0
 sudo apt install foremost -y
 
 # Install Mingw to compile windows binaries on Linux
-tput bold;tput setaf 5; echo "Installing Mingw to compile windows binaries on Linux"
+tput bold;tput setaf 5; echo "Installing Mingw to compile windows binaries on Linux";tput sgr0
 sudo apt-get install mingw-w64-x86-64-dev gcc-mingw-w64-x86-64 gcc-mingw-w64 -y
 
 # Install Boxes for console Messages
@@ -55,13 +55,13 @@ sudo apt install boxes -y
 
 # Install Velociraptor
 # Install instructions can be found here https://github.com/weslambert/velociraptor-docker
-tput bold;tput setaf 5; echo "Installing Velociraptor"
+tput bold;tput setaf 5; echo "Installing Velociraptor";tput sgr0
 sudo apt install docker-compose -y
 cd /home/$USER/tools/
 git clone https://github.com/weslambert/velociraptor-docker
 cd /home/$USER/tools/velociraptor-docker
 sudo docker-compose up -d 
-tput bold;tput setaf 5; echo "To access the Velociraptor Console browse to URL https://192.168.56.1:8889; username=admin password=admin"
+tput bold;tput setaf 5; echo "To access the Velociraptor Console browse to URL https://192.168.56.1:8889; username=admin password=admin";tput sgr0
 sudo sed -i 's/-\ https:\/\/VelociraptorServer:8000\//-\ https:\/\/192.168.56.1:8000\//g' /home/$USER/tools/velociraptor-docker/velociraptor/client.config.yaml
 # If you want to stop Velociraptor run command 'sudo docker-compose stop'
 # Access the Velociraptor GUI via https://<hostip>:8889
@@ -83,12 +83,12 @@ sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/su
 # Once started, edit server.config.yaml in /velociraptor, then run docker-compose down/up for the server to reflect the changes
 
 # Install VirtualBox
-tput bold;tput setaf 5; echo "installing VirtualBox"
+tput bold;tput setaf 5; echo "installing VirtualBox";tput sgr0
 sudo apt install virtualbox virtualbox-ext-pack -y
 
 # Download MS VM
 # Get Flare-VM 
-tput bold;tput setaf 5; echo "Donwloaing some tools, FlareVM, AtomicRedteam, Sysmon"
+tput bold;tput setaf 5; echo "Donwloaing some tools, FlareVM, AtomicRedteam, Sysmon";tput sgr0
 cd /home/$USER/tools/
 git clone https://github.com/mandiant/flare-vm.git
 
@@ -105,7 +105,7 @@ cd /home/$USER/tools/
 git clone https://github.com/olafhartong/sysmon-modular.git
 # Get Win10 Dev VM for IE
 cd /home/$USER/tools/
-tput bold;tput setaf 5; echo "Downloading Win10 Dev VM for IE; Grab some coffee, this might take a while"
+tput bold;tput setaf 5; echo "Downloading Win10 Dev VM for IE; Grab some coffee, this might take a while";tput sgr0
 wget -O WinDev2301Eval.VirtualBox.zip https://aka.ms/windev_VM_virtualbox
 sleep 10
 unzip WinDev2301Eval.VirtualBox.zip
@@ -118,7 +118,7 @@ unzip WinDev2301Eval.VirtualBox.zip
 #7z x 'ProPlus2019Retail.img' -o/home/$USER/tools/Office2019
 
 # Extract VMDK Disk from OVA file to prep for FlareVM
-tput bold;tput setaf 5; echo "Extracting VMDK Disk from OVA file to prep for FlareVM"
+tput bold;tput setaf 5; echo "Extracting VMDK Disk from OVA file to prep for FlareVM";tput sgr0
 mkdir -p  /home/$USER/tools/OVA-temp
 mkdir -p  /home/$USER/tools/P316-ThreatResearch
 7z x 'WinDev2301Eval.ova' -o/home/$USER/tools/OVA-temp
@@ -127,12 +127,12 @@ rm /home/$USER/tools/OVA-temp/'WinDev2301Eval.ovf'
 mv /home/$USER/tools/OVA-temp/'WinDev2301Eval-disk001.vmdk' /home/$USER/tools/OVA-temp/P316-ThreatResearch.vmdk
 
 # Convert VMDK image to VDI image; This is required to expand the dynamic disk size to install FlareVM
-tput bold;tput setaf 5; echo "Convert VMDK image to VDI image; This is required to expand the dynamic disk size to install FlareVM"
+tput bold;tput setaf 5; echo "Convert VMDK image to VDI image; This is required to expand the dynamic disk size to install FlareVM";tput sgr0
 VBoxManage clonehd --format VDI /home/$USER/tools/OVA-temp/P316-ThreatResearch.vmdk  /home/$USER/tools/P316-ThreatResearch/P316-ThreatResearch.vdi
 cd /home/$USER/tools/P316-ThreatResearch
 
 # Create Virtual Machine via command line 
-tput bold;tput setaf 5; echo "Creating Virtual Machine"
+tput bold;tput setaf 5; echo "Creating Virtual Machine";tput sgr0
 vboxmanage createvm --name P316-ThreatResearch --ostype Windows_64 --register --basefolder /home/$USER/tools/ &&
 VBoxManage modifyvm P316-ThreatResearch --firmware efi &&
 vboxmanage modifyvm P316-ThreatResearch --memory 4096 --cpus 2 --vram 128 --graphicscontroller VBoxSVGA &&
@@ -178,13 +178,13 @@ cd /home/$USER/tools/
 wget -O splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.0.3/linux/splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb"
 wget -O splunkforwarder.msi "https://download.splunk.com/products/universalforwarder/releases/9.0.3/windows/splunkforwarder-9.0.3-dd0128b1f8cd-x64-release.msi"
 cat ~/tools/message.txt
-zenity --error --text="Install Script Finished - See console for next steps\!" --title="Script Setup Completed!"
+whiptail  --title="Script Setup Completed!"  --msgbox  "Install Script Finished - See console for next steps\!" 8 78
 
-tput bold;tput setaf 5; echo "Have you logged into Splunk and downloaded Splunk installer and Splunkforwarder binary? If yes then continue"
+tput bold;tput setaf 5; echo "Have you logged into Splunk and downloaded Splunk installer and Splunkforwarder binary? If yes then continue";tput sgr0
 read -n 1 -r -s -p $'Press enter to continue...\n'
 #MV Splunk Forwarder binary to tools dir
 # Install Splunk
-tput bold;tput setaf 5; echo "Installing Splunk"
+tput bold;tput setaf 5; echo "Installing Splunk";tput sgr0
 sudo dpkg -i /home/$USER/tools/splunk*.deb
 tput bold;tput setaf 5; echo "Starting Splunk"
 chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-splunk 
@@ -195,8 +195,8 @@ sudo /opt/splunk/bin/splunk start --accept-license
 #Create username (admin) and password (Passw0rd!) when prompted during the Splunk install
 # Velociraptor is currently using http port [8000]; You'll need to supply another port number. I'd suggest suggest using port 8888
 # After Splunk starts up login using the credential created during the install at URL http://system1:8888
-tput bold;tput setaf 5; echo "Stopping Splunk"
+tput bold;tput setaf 5; echo "Stopping Splunk";tput sgr0
 sudo /opt/splunk/bin/splunk stop
-tput bold;tput setaf 5; echo "Splunk Install Completed; To start Splunk run command start-splunk else stop-splunk to shutdown the Splunk server"
-tput bold;tput setaf 5; echo "You can access Splunk using this URL http://127.0.0.1:8888; Use the username and password you created during the install"
-tput bold;tput setaf 5; echo "Next steps, laucnh the Windows 11 VM and continue with the Windows portion of the setup"
+tput bold;tput setaf 5; echo "Splunk Install Completed; To start Splunk run command start-splunk else stop-splunk to shutdown the Splunk server";tput sgr0
+tput bold;tput setaf 5; echo "You can access Splunk using this URL http://127.0.0.1:8888; Use the username and password you created during the install";tput sgr0
+tput bold;tput setaf 5; echo "Next steps, laucnh the Windows 11 VM and continue with the Windows portion of the setup";tput sgr0
