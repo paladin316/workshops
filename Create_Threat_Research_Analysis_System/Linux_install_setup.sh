@@ -1,4 +1,5 @@
 #!/bin/sh
+if [ "$(id -u)" -eq 0 ]; then tput bold;tput setaf 5;echo "Please do not run as root." >&2; exit 1; fi
 
 # Get Repo
 mkdir /home/$USER/tools/
