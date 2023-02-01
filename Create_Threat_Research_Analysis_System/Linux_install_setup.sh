@@ -10,7 +10,7 @@ git clone https://github.com/paladin316/workshops.git
 
 
 #Remnux Install
-echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
+tput bold;tput setaf 5; echo "Downloading and installing Remnux; Grab some coffee, this might take a while"
 cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
 
