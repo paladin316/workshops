@@ -12,5 +12,12 @@
  |*| This potion of the setup script is completed;                                        |*|
  |*| Since you'll need to create a Splunk account to download  updates and                |*|
  |*| another packages. You can login using this URL https://login.splunk.com/             |*|
+ |*| To access your local instance of Splunk run command start-splunk and nagivate to     |*|
+ |*| URL https://192.168.56.1:8888 OR https://192.168.56.1:8888                           |*|
+ |*| to stop Splunk run cmd stop-splunk                                                   |*|
+ |*|                                                                                      |*|
+ |*| To access your local install of the Velociraptor console, navigate to URL            |*|
+ |*| http://192.168.56.1:8889 OR https://192.168.56.1:8889                                |*|
+ |*| To start Velociraptor run cmd start-velociraptor or stop-velociraptor to stop        |*|
  |*|______________________________________________________________________________________|*|
  
