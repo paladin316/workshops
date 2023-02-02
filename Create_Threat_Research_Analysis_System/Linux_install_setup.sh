@@ -13,7 +13,7 @@ if [ $SPACE -le $reqSpace ];then
 fi
 
 # Get Repo
-mkdir -p  /home/$USER/tools/workshops 
+mkdir -p  /home/$USER/tools/ 
 cd /home/$USER/tools/
 git clone https://github.com/paladin316/workshops.git 2>/dev/null &&
 
@@ -29,7 +29,7 @@ cp remnux-cli remnux
 chmod +x remnux
 sudo mv remnux /usr/local/bin
 sudo apt install -y gnupg
-sudo remnux install -y
+sudo remnux install
 
 # Download Windows Tools
 mkdir -p  /home/$USER/tools/windows_tools
