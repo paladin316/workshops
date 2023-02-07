@@ -11,13 +11,13 @@ This script will install the necessary files used to build the base analysis sys
 Here are the specs for the system I used to build this project. I found this one on Amazon, the first mini pc I tested cost $150 but had a smaller hard drive that would not be enough for this project unless you added in a USB drive to supplement drive storage space:
 
 Lenovo ThinkCentre M900 Tiny Desktop - Example: [This is the system I used for this project](https://www.amazon.com/Lenovo-ThinkCentre-M900-Tiny-Desktop/dp/B084X4JVNL/ref=sr_1_4?keywords=lenovo+tiny&qid=1675185661&sr=8-4)
-*Quad Core i7 6700T 2.8Ghz
-*16GB DDR4
-*512GB SSD Hard Drive
+* Quad Core i7 6700T 2.8Ghz
+* 16GB DDR4
+* 512GB SSD Hard Drive
 
 Minimum System Requirements:
-*Disk Space >= 200GB
-*Memory >=8GB
+* Disk Space >= 200GB
+* Memory >=8GB
 
 
 Install Steps:
