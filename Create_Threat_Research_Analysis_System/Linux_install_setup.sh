@@ -22,13 +22,16 @@ git clone https://github.com/paladin316/workshops.git 2>/dev/null &&
 tput bold;tput setaf 5; echo "Downloading and installing Remnux; Grab some coffee, this might take a while";tput sgr0
 cd /home/$USER/tools/
 wget https://REMnux.org/remnux-cli
-
+tput bold;tput setaf 5; echo "Finishing up this task, script is working...";tput sgr0
+sleep 60
 # 23c7f4eefa7599ea2c4156f083906ea5fd99df18f306e4bb43eec0430073985a
 sha256sum remnux-cli
 cp remnux-cli remnux
 chmod +x remnux
 sudo mv remnux /usr/local/bin
 sudo apt install -y gnupg
+tput bold;tput setaf 5; echo "Finishing up this task, script is working...";tput sgr0
+sleep 60
 sudo remnux install
 
 # Download Windows Tools
@@ -58,8 +61,14 @@ tput bold;tput setaf 5; echo "Installing Velociraptor";tput sgr0
 sudo apt install docker-compose -y
 cd /home/$USER/tools/
 git clone https://github.com/weslambert/velociraptor-docker
+tput bold;tput setaf 5; echo "Finishing up this task, script is working...";tput sgr0
+sleep 60
 cd /home/$USER/tools/velociraptor-docker
+tput bold;tput setaf 5; echo "Finishing up this task, script is working...";tput sgr0
+sleep 60
 sudo docker-compose up -d 
+tput bold;tput setaf 5; echo "Finishing up this task, script is working...";tput sgr0
+sleep 60
 tput bold;tput setaf 5; echo "To access the Velociraptor Console browse to URL https://192.168.56.1:8889; username=admin password=admin";tput sgr0
 sudo sed -i 's/-\ https:\/\/VelociraptorServer:8000\//-\ https:\/\/192.168.56.1:8000\//g' /home/$USER/tools/velociraptor-docker/velociraptor/client.config.yaml
 # If you want to stop Velociraptor run command 'sudo docker-compose stop'
@@ -176,7 +185,7 @@ rm /home/$USER/tools/WinDev2301Eval.VirtualBox.zip
 cd /home/$USER/tools/
 wget -O splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.0.3/linux/splunk-9.0.3-dd0128b1f8cd-linux-2.6-amd64.deb"
 wget -O splunkforwarder.msi "https://download.splunk.com/products/universalforwarder/releases/9.0.3/windows/splunkforwarder-9.0.3-dd0128b1f8cd-x64-release.msi"
-cat ~/tools/message.txt
+cat ~/tools/workshops/Create_Threat_Research_Analysis_System/support_files/message.txt
 whiptail  --title="Script Setup Completed!"  --msgbox  "Install Script Finished - See console for next steps\!" 8 78
 
 tput bold;tput setaf 5; echo "Have you logged into Splunk and downloaded Splunk installer and Splunkforwarder binary? If yes then continue";tput sgr0
@@ -185,7 +194,7 @@ read -n 1 -r -s -p $'Press enter to continue...\n'
 # Install Splunk
 tput bold;tput setaf 5; echo "Installing Splunk";tput sgr0
 sudo dpkg -i /home/$USER/tools/splunk*.deb
-tput bold;tput setaf 5; echo "Starting Splunk"
+tput bold;tput setaf 5; echo "Starting Splunk";tput sgr0
 chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-splunk 
 sudo ln -s /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/start-splunk /usr/bin/
 chmod +x /home/$USER/tools/workshops/Create_Threat_Research_Analysis_System/support_files/stop-splunk 
