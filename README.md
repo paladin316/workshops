@@ -8,6 +8,17 @@ The base host I used for this project is a Kubuntu 20.04 (Some may prefer Ubuntu
 
 This script will install the necessary files used to build the base analysis system and the files used to build the Windows 11 VM (Unfortuately Windows 10 Dev VM is no longer available). The total install time is about 4 - 6 hours depending on your Internet bandwith. Most of the install is automated excpet for some of the Windows setup steps, but even most of that is automated as well.
 
+Here are the specs for the system I used to build this project. I found this one on Amazon, the first mini pc I tested cost $150 but had a smaller hard drive that would not be enough for this project unless you added in a USB drive to supplement drive storage space:
+
+Lenovo ThinkCentre M900 Tiny Desktop - Example: [This is the system I used for this project](https://www.amazon.com/Lenovo-ThinkCentre-M900-Tiny-Desktop/dp/B084X4JVNL/ref=sr_1_4?keywords=lenovo+tiny&qid=1675185661&sr=8-4)
+Quad Core i7 6700T 2.8Ghz
+16GB DDR4
+512GB SSD Hard Drive
+
+Minimum System Requirements:
+Disk Space >= 200GB
+Memory >=8GB
+
 
 Install Steps:
 
