@@ -14,6 +14,7 @@ Here are the specs for the system I used to build this project. I found this one
 * Quad Core i7 6700T 2.8Ghz
 * 16GB DDR4
 * 512GB SSD Hard Drive
+* External 5g wireless adapter 
 
 **Minimum System Requirements:**
 * Disk Space >= 200GB
